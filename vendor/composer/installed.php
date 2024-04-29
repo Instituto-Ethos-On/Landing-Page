@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'b35323bdce122f1939b8176adf84480141a8f7e1',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'b35323bdce122f1939b8176adf84480141a8f7e1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'mobiledetect/mobiledetectlib' => array(
+            'pretty_version' => '2.8.45',
+            'version' => '2.8.45.0',
+            'reference' => '96aaebcf4f50d3d2692ab81d2c5132e425bca266',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mobiledetect/mobiledetectlib',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'riverskies/laravel-mobile-detect' => array(
+            'pretty_version' => '1.3',
+            'version' => '1.3.0.0',
+            'reference' => '0ddb27d31a4a1148875424426b9feda6598f2f14',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../riverskies/laravel-mobile-detect',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

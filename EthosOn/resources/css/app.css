@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: "Poppins", sans-serif;
+        src: url("public/fonts/Poppins/Poppins-Regular.ttf}}")
+                format("truetype"),
+            url("public/fonts/Poppins/Poppins-Bold.ttf") format("truetype"),
+            url("public/fonts/Poppins/Poppins-Light.ttf") format("truetype"),
+            url("public/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype"),
+            url("public/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype"),
+            url("public/fonts/Poppins/Poppins-Black.ttf") format("truetype"),
+            url("public/fonts/Poppins/Poppins-Italic.ttf") format("truetype"),
+            url("public/fonts/Poppins/Poppins-Thin.ttf") format("truetype");
+    }
+}
