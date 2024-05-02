@@ -74,7 +74,7 @@
                             <a href="/educacao">
                                 <li class="p-4 hover:bg-white hover:text-black">Educação</li>
                             </a>
-                            <a href="/gestao-de-negocios">
+                            <a href="/gestao-e-negocios">
                                 <li class="p-4 hover:bg-white hover:text-black">Gestão e Negocios</li>
                             </a>
                             <a href="/tecnologia">

@@ -46,7 +46,7 @@ Route::controller(CursosController::class)->group(function () {
 
     Route::get('/direito', 'page_direito');
 
-    Route::get('/gestao-de-negocios', 'page_gestao');
+    Route::get('/gestao-e-negocios', 'page_gestao');
 
     Route::get('/saude', 'page_saude');
 
