@@ -76,7 +76,7 @@
             <div class="lg:w-72 p-5 pb-5">
                 <x-button>
                     <x-slot name="linkCurso">
-                        /posgraduacoes
+                        /pos-graduacoes
                     </x-slot>
                     Confira nossos cursos!
                 </x-button>

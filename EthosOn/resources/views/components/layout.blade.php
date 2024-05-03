@@ -206,7 +206,7 @@
                                         class="p-4 pl-10 font-semibold  rounded hover:text-blue-600 hover:bg-blue-50 text-sm text-gray-400 ">Quem
                                         Somos</a>
                                     <a href="/pos-graduacoes"
-                                        class="p-4 pl-10 font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50 text-sm  ">Pós
+                                        class="p-4 pl-10 font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50 text-sm">Pós
                                         Graduações</a>
                                     <a href="/educacao-corporativa"
                                         class="pl-10 p-4 text-sm font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50  ">Educação
@@ -261,7 +261,7 @@
                 <div class="lg:pl-20 md:w-96 max-[768px]:text-center font-semibold  max-[768px]:mx-auto">
                     <h1 class="text-lg">Links importantes</h1>
                     <div class="text-md lg:ml-5 gap-3">
-                        <div class="p-1 border-b-2 border-transparent hover:border-teal-400"><a href="">Quem
+                        <div class="p-1 border-b-2 border-transparent hover:border-teal-400"><a href="/quem-somos">Quem
                                 somos Ethos On</a></div>
                         <div class="p-1 border-b-2 border-transparent hover:border-teal-400"><a
                                 href="/politicas-de-privacidade">Políticas de Privacidade</a></div>

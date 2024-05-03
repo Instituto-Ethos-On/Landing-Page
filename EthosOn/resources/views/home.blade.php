@@ -20,7 +20,10 @@
                 <div class="w-10/12 flex justify-end px-20 py-10">@include('partials.dropdown-curso')</div>
             </div>
             {{-- mobile --}}
-            <div class="min-[768px]:hidden pt-52">@include('partials.dropdown-curso-mobile')</div>
+            <div class="pt-72 z-0"></div>
+            <div class="text-center text-3xl font-bold text-teal-400 drop-shadow trigger_scroll_right">Áreas
+                de Pós-Graduação</div>
+            <div class="min-[768px]:hidden">@include('partials.dropdown-curso-mobile')</div>
            
             <div class="md:pt-96 lg:pt-0"></div>
             <!-- Cards Educação Corporativa -->
