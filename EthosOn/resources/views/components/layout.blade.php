@@ -211,7 +211,7 @@
                                     <a href="/educacao-corporativa"
                                         class="pl-10 p-4 text-sm font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50  ">Educação
                                         Corporativa</a>
-                                    <a href="cursos-de-aperfeicoamento"
+                                    <a href="/cursos-de-aperfeicoamento"
                                         class="pl-10 p-4 font-semibold  rounded hover:text-blue-600 hover:bg-blue-50 text-sm text-gray-400 ">C.
                                         de Aperfeiçoamento</a>
                                 </div>
