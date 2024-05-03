@@ -209,7 +209,7 @@
                         role="tabpanel" aria-labelledby="stats-tab">
                         <h1 class="mb-2 text-3xl font-bold text-white pb-2">Sobre o Curso</h1>
 
-                        <div class="text-gray-50 pb-2 text-lg font-semibold">{!! $thisCurso->conteudo !!}</div>
+                        <div class="text-gray-50 pb-2 text-lg font-regular">{!! $thisCurso->conteudo !!}</div>
                         <div class=" pt-2 gap-2 text-white">
                             <h1 class="font-bold text-2xl">Carga Horária do Curso:</h1>
                             <p class="text-xl">{{ $thisCurso->total }} Horas</p>
