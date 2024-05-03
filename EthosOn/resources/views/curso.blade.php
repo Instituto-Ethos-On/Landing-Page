@@ -263,10 +263,10 @@
                                         class="far fa-address-card fa-lg"></i></div>
                                 <span class="h-1/2 font-bold">Microcertificação por disciplina</span>
                             </div>
-                            <div class="flex items-center gap-2 w-60">
+                            <div class="flex items-center gap-2 w-72 lg:w-80">
                                 <div class="bg-teal-400 rounded-full p-3 w-fit h-fit "><i
                                         class="fas fa-check fa-xl"></i></div>
-                                <span class="h-1/2 font-bold">Curso Registrado pelo MEC</span>
+                                <span class="h-1/2 font-bold">Certificado emitido por Faculdade credenciada no MEC</span>
                             </div>
                             <div class="flex items-center gap-2 w-72">
                                 <div class="bg-teal-400 rounded-full p-3 w-fit h-fit"><i
