@@ -1,12 +1,22 @@
+@push('styles')
+    <style>
+        .curso-apresentacao {
+            overflow: hidden !important;
+            display: -webkit-box !important;
+            -webkit-box-orient: vertical !important;
+            -webkit-line-clamp: 8 !important;
+        }
+    </style>
+@endpush
 <x-layout>
     <x-slot name="meta_descricao">
-        {{ $thisCurso->apresentacao}}
+        {{ $thisCurso->apresentacao }}
     </x-slot>
     <x-slot name="meta_keywords">
         {{ $thisCurso->area }}
     </x-slot>
     <x-slot name="title">
-        {{ $thisCurso->nome }} - Ethos on 
+        {{ $thisCurso->nome }} - Ethos on
     </x-slot>
     <x-banner>
         <x-slot name="image1">
@@ -26,14 +36,17 @@
                 @case('educacao')
                     {{ asset('images/banner/cursos/educacao/educacao-checkout.jpeg') }}
                 @break
+
                 @case('saude')
                     {{ asset('images/banner/cursos/saude/saude-checkout-desktop.jpeg') }}
                 @break
+
                 @case('tecnologia')
                     {{ asset('images/banner/cursos/tecnologia/tecnologia-checkout-desktop.jpeg') }}
                 @break
+
                 @case('gestao-e-negocios')
-                {{ asset('images/banner/cursos/gestao-negocios/gestao-checkout-desktop.jpeg') }}
+                    {{ asset('images/banner/cursos/gestao-negocios/gestao-checkout-desktop.jpeg') }}
                 @break
             @endswitch
         </x-slot>
@@ -54,53 +67,69 @@
                 @case('educacao')
                     {{ asset('images/banner/cursos/educacao/educacao-checkout-mb.jpeg') }}
                 @break
+
                 @case('saude')
                     {{ asset('images/banner/cursos/saude/saude-checkout-mb.jpeg') }}
                 @break
+
                 @case('tecnologia')
                     {{ asset('images/banner/cursos/tecnologia/tecnologia-checkout-mb.jpg') }}
                 @break
+
                 @case('gestao-e-negocios')
-                {{ asset('images/banner/cursos/gestao-negocios/gestao-checkout-mb.jpeg') }}
+                    {{ asset('images/banner/cursos/gestao-negocios/gestao-checkout-mb.jpeg') }}
                 @break
             @endswitch
         </x-slot>
         <x-slot name="description">
             <div class="lg:p-10 p-5">
                 <div class="flex justify-between">
-                    <div class="rounded-full text-sm text-gray-700 border-1 border-teal-300 border shadow-teal-200 shadow w-fit p-2 mb-5">
+                    <div
+                        class="rounded-full text-sm text-gray-700 border-1 border-teal-300 border shadow-teal-200 shadow w-fit p-2 mb-5">
                         <p><strong>Pós-graduação em</strong>
                             @switch(strtolower($thisCurso->area))
                                 @case('engenharia')
-                                Engenharia
+                                    Engenharia
                                 @break
+
                                 @case('psicologia')
-                                Psicologia
+                                    Psicologia
                                 @break
+
                                 @case('educacao')
-                                Educação
+                                    Educação
                                 @break
+
                                 @case('gestao-e-negocios')
-                                Gestão e Negócios
+                                    Gestão e Negócios
                                 @break
+
                                 @case('saude')
-                                Saúde
+                                    Saúde
                                 @break
+
                                 @case('tecnologia')
-                                Tecnologia
+                                    Tecnologia
                                 @break
+
                                 @case('educacao-corporativa')
-                                Educação Corporativa
+                                    Educação Corporativa
                                 @break
+
                                 @case('direito')
-                                Direito
+                                    Direito
                                 @break
-                            @endswitch</p>
+                            @endswitch
+                        </p>
                     </div>
-                    <div data-modal-target="modal-apresentacao" data-modal-toggle="modal-apresentacao" class="my-auto m-2 hover:scale-125 duration-200 transition-transform"><i class="fa-solid fa-expand"></i></div>
+                    <div data-modal-target="modal-apresentacao" data-modal-toggle="modal-apresentacao"
+                        class="my-auto m-2 hover:scale-125 duration-200 transition-transform"><i
+                            class="fa-solid fa-expand"></i></div>
                 </div>
-                <div data-modal-target="modal-apresentacao" data-modal-toggle="modal-apresentacao">
-                    <p class="line-clamp-[10]">{{ $thisCurso->apresentacao }}</p>
+                <h2 class="pb-4 font-bold text-teal-400 text-3xl drop-shadow">{{ $thisCurso->nome }}</h2>
+                <div data-modal-target="modal-apresentacao"
+                    data-modal-toggle="modal-apresentacao">
+                    <p class="curso-apresentacao">{{ $thisCurso->apresentacao }}</p>
                 </div>
         </x-slot>
         <x-slot name="addons">
@@ -110,34 +139,40 @@
             max-[768px]:mt-96
         </x-slot>
     </x-banner>
-    <div id="modal-apresentacao" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full   h-[calc(100%-1rem)] max-h-full">
+    <div id="modal-apresentacao" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full   h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-apresentacao">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="modal-apresentacao">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                         </svg>
                         <span class="sr-only">Fechar modal</span>
                     </button>
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-justify leading-5">{{ $thisCurso->apresentacao }}</p>
+                    <p class="text-justify leading-normal">{{ $thisCurso->apresentacao }}</p>
                 </div>
-                
+
             </div>
         </div>
     </div>
-</div>
+    </div>
     <div class="w-full flex justify-center max-[768px]:pt-80">
         <div class="flex flex-col items-center">
             <div class="rounded-3xl bg-white border-teal-500 border-4 z-10 px-5 py-5 lg:w-80">
                 <h1 class="text-center text-2xl font-bold text-teal-500">Temos uma Oferta exclusiva para você</h1>
             </div>
-            <div class="-mt-14 z-0 rounded-3xl border-y-4 border-teal-500 lg:px-20 lg:py-20 max-[768px]:px-5 max-[768px]:py-14">
+            <div
+                class="-mt-14 z-0 rounded-3xl border-y-4 border-teal-500 lg:px-20 lg:py-20 max-[768px]:px-5 max-[768px]:py-14">
                 <h2 class="text-center pb-5 text-teal-500 font-bold text-2xl">Fale com um de nossos consultores</h2>
                 <div class="pb-5">
                     <h3 class="text-teal-500 font-bold text-lg">Curso com conclusão a partir de</h3>
@@ -150,7 +185,8 @@
                 <h3 class="text-teal-500 font-bold text-lg"><i aria-hidden="true"
                         class="fas fa-clone text-teal-500 fa-invert pr-2"></i>TCC Opcional</h3>
                 <h3 class="text-teal-500 font-bold text-lg"><i aria-hidden="true"
-                        class="fas fa-check-square text-teal-500 pr-2"></i>Certificado emitido por Faculdade credenciada no MEC</h3>
+                        class="fas fa-check-square text-teal-500 pr-2"></i>Certificado emitido por Faculdade credenciada
+                    no MEC</h3>
             </div>
             <x-button class="-mt-5 z-10">
                 {{-- TODO: colocar link dinâmico --}}
@@ -175,16 +211,16 @@
                             Mais</summary>
                         <div class="flex flex-col border-1 border-teal-600">
                             <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab"
-                            aria-controls="stats" aria-selected="true"
-                            class="transition-colors duration-200 inline-block w-full p-3 text-gray-500 bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
-                            o curso</button>
+                                aria-controls="stats" aria-selected="true"
+                                class="transition-colors duration-200 inline-block w-full p-3 text-gray-500 bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
+                                o curso</button>
                             <button id="about-tab" data-tabs-target="#about" type="button" role="tab"
-                            aria-controls="about" aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 text-gray-500 bg-teal-400 hover:bg-gray-100 focus:outline-none ">Conteúdo</button>
-                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq"
-                            aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-gray-500 bg-teal-400">Como
-                            funciona</button>
+                                aria-controls="about" aria-selected="false"
+                                class="transition-colors duration-200 inline-block w-full p-3 text-gray-500 bg-teal-400 hover:bg-gray-100 focus:outline-none ">Conteúdo</button>
+                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
+                                aria-controls="faq" aria-selected="false"
+                                class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-gray-500 bg-teal-400">Como
+                                funciona</button>
                         </div>
                         <button id="investimento-tab" data-tabs-target="#investimento" type="button" role="tab"
                             aria-controls="investimento" aria-selected="false"
@@ -205,8 +241,8 @@
                             class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none  text-gray-500 font-bold">Conteúdo</button>
                     </li>
                     <li class="w-full">
-                        <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq"
-                            aria-selected="false"
+                        <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
+                            aria-controls="faq" aria-selected="false"
                             class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg bg-gray-100 hover:bg-gray-50 focus:outline-none  text-gray-500 font-bold">Como
                             funciona</button>
                     </li>
@@ -301,27 +337,28 @@
                                 <h1 class="font-bold text-3xl">Valor</h1>
                             </div>
                             <div class="font-semibold text-lg">
-                                <p>PARCELA ÚNICA / À VISTA {{ Number::currency($thisCurso->preco, in: 'BRL', locale: 'pt-br'); }}</p>
+                                <p>PARCELA ÚNICA / À VISTA
+                                    {{ Number::currency($thisCurso->preco, in: 'BRL', locale: 'pt-br') }}</p>
                                 <p>TAXA DE MATRÍCULA R$ 49,90</p>
                                 @php
-                                    Methods::divided($thisCurso->preco, $parcelas)
+                                    Methods::divided($thisCurso->preco, $parcelas);
                                 @endphp
                                 <div class="pt-5">
                                     <x-button>
                                         {{-- TODO: colocar link para oferta --}}
                                         <x-slot name="linkCurso">
-                                            {{$whatsapp_num}}
+                                            {{ $whatsapp_num }}
                                         </x-slot>
                                         Consulte a oferta especial
                                     </x-button>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-        
+
 </x-layout>
