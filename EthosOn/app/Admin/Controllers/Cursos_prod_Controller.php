@@ -32,6 +32,7 @@ class Cursos_prod_Controller extends AdminController
             $filter->equal('area')->select(["engenharia" => "engenharia", "psicologia" => "psicologia", "educacao" => "educacao", "direito" => "direito", "tecnologia" => "tecnologia", "gestao-e-negocios" => "gestao-e-negocios", "saude" => "saude"]);
             $filter->equal('cl', __('CL'))->radio([
                 1 => 'Sim',
+                0 => 'Não'
             ])->default(null);
         });
         $grid->column('id', __('Id'));
@@ -88,13 +89,13 @@ class Cursos_prod_Controller extends AdminController
 
         $form->text('nome', __('Nome'))->defaultOnEmpty('teste');
         $form->select('area', __('Area'))->options(["engenharia" => "engenharia", "psicologia" => "psicologia", "educacao" => "educacao", "direito" => "direito", "tecnologia" => "tecnologia", "gestao-e-negocios" => "gestao-e-negocios", "saude" => "saude"]);
-        $form->switch('cl', __('CL'))->defaultOnEmpty(1);
+        $form->switch('cl', __('CL'))->defaultOnEmpty(0);
         $form->textarea('apresentacao', __('Apresentacao'));
         $form->textarea('objetivo', __('Objetivo'));
         $form->ckeditor('conteudo', __('Conteúdo'));
         $form->number('duracao', __('Duracao'))->pattern('[0-9]');
         $form->number('total', __('Duracao Total (hrs)'))->pattern('[0-9]');
-        $form->number('preco', __('Preco'))->pattern('[0-9]');
+        $form->number('preco', __('Preco'));
         $form->image('image', __('Image'));
         
         return $form;

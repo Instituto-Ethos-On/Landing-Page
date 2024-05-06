@@ -17,11 +17,11 @@
             <div class="desktop-dropdown py-20 max-[768px]:hidden">
                 <div class="w-10/12 flex justify-end text-3xl font-bold text-teal-400 drop-shadow trigger_scroll_right">Áreas
                     de Pós-Graduação</div>
-                <div class="w-10/12 flex justify-end px-20 py-10">@include('partials.dropdown-curso')</div>
+                <div class="lg:w-10/12 flex justify-end lg:px-20 py-10">@include('partials.dropdown-curso')</div>
             </div>
             {{-- mobile --}}
-            <div class="pt-72 z-0"></div>
-            <div class="text-center text-3xl font-bold text-teal-400 drop-shadow trigger_scroll_right">Áreas
+            <div class="min-[768px]:hidden pt-72 z-0"></div>
+            <div class="min-[768px]:hidden text-center text-3xl font-bold text-teal-400 drop-shadow trigger_scroll_right">Áreas
                 de Pós-Graduação</div>
             <div class="min-[768px]:hidden">@include('partials.dropdown-curso-mobile')</div>
            
