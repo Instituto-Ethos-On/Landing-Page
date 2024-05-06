@@ -46,13 +46,13 @@
             <ul class="flex justify-between items-center mb-4 text-xs font-bold text-teal-600 leading-1">
                 <li class="min-[768px]:p-2"><a href="{{ $whatsapp_num }}" target="_blank">Entre em
                         Contato</a></li>
-                <li class="min-[768px]:p-2"><a href="#">Matricule-se</a></li>
                 <li class="min-[768px]:p-2"><a href="https://universa.ethoson.com.br/financeiro/painel/titulos"
                         target="_blank">2º via de boleto</a></li>
                 <li class="min-[768px]:p-2"><a href="https://ead.ethoson.com.br/">Portal do Aluno</a></li>
-                <li><a href="/"><img class="w-24" src="{{ asset('images/logo.png') }}" alt="Ethos On logo"
-                            class="logo" /></a></li>
+                
                 <li class="min-[768px]:p-2"><a href="/quem-somos">Quem Somos</a></li>
+                <li><a href="/"><img class="w-24" src="{{ asset('images/logo.png') }}" alt="Ethos On logo"
+                    class="logo" /></a></li>
                 <div class="relative">
                     <li class="min-[768px]:p-2 dropdown"><a href="/pos-graduacoes">Pós Graduação</a><i
                             class="pl-2 fas fa-caret-down"></i></li>
@@ -131,7 +131,6 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li><a class="text-sm font-bold text-blue-600" href="#">Matricule-se</a></li>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -183,10 +182,6 @@
                         <li class="mb-1">
                             <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50"
                                 href="{{ $whatsapp_num }}">Entre em Contato</a>
-                        </li>
-                        <li class="mb-1">
-                            <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50"
-                                href="#">Matricule-se</a>
                         </li>
                         <li class="mb-1">
                             <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:text-blue-600 hover:bg-blue-50"

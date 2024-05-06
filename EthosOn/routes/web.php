@@ -102,11 +102,11 @@ Route::get('reviews-getmore', function(Request $request){
 })->name('reviews-getmore');
 
 // teste
-Route::get('/teste', function(){
-    return view('teste', [
-        'reviews' => Review_Model::latest()->get()
-    ]);
-});
+// Route::get('/teste', function(){
+//     return view('teste', [
+//         'reviews' => Review_Model::latest()->get()
+//     ]);
+// });
 
 // Route::get('/setup', function(){
 //     $credentials = [
