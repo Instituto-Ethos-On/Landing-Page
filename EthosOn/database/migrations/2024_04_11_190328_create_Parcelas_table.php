@@ -17,6 +17,7 @@ class CreateParcelasTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('quantidade')->comment('exemplo: [6.0, 9.0, 12.0]');
+            $table->string('juros')->comment('deve ter a mesma quantidade de items que a coluna de quantidade');
             $table->timestamps();
         });
     }
