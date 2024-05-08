@@ -20,14 +20,14 @@ class CursosController extends Controller
     public function curso(Cursos_prod $thisCurso)
     {
         $parcelas = Parcelas_model::find(2); //curso
-        $parcelas = $parcelas->quantidade;
+        
         return view('curso', compact('thisCurso', 'parcelas'));
     }
 
     public function cursoCL(Cursos_prod $thisCurso)
     {
         $parcelas = Parcelas_model::find(1); //curso
-        $parcelas = $parcelas->quantidade; //cl
+        
         return view('cursoCL', compact('thisCurso', 'parcelas'));
     }
 
