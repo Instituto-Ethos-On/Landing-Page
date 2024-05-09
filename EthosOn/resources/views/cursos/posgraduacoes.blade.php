@@ -1,3 +1,13 @@
+@push('styles')
+<style>
+    .card-content > p {
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 2 !important;
+    }
+</style>
+@endpush
 <x-layout>
     <x-slot name="meta_descricao">
         Pós-graduação no Ethos on!
@@ -51,7 +61,9 @@
         {{ $cursos->appends(['search' => request()->query('search')])->links() }}
     </div>
 
-    <div class="lg:p-20 p-5 testimonial-data">@include('partials.testimonial')</div>
+    {{-- <div class="lg:p-20 p-5 testimonial-data">@include('partials.testimonial')</div> --}}
+    <div class="w-full pb-96 mb-96 pt-12 lg:px-32">@include('partials.carousel-review')</div>
+
 
 </x-layout>
 

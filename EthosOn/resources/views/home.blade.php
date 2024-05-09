@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:p-20 p-5 testimonial-data">@include('partials.testimonial')</div>
+            <div class="w-full pb-96 mb-96 pt-12 lg:px-32">@include('partials.carousel-review')</div>
             {{-- mobile --}}
             <div class="mb-20 min-[768px]:hidden flex flex-col rounded-xl bg-center bg-cover mx-3 w-12/12 h-4/6"
                 style="background-image: url('{{ asset('images/banner/quem-somos-mb.jpg') }}')">

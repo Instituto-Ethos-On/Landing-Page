@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         $whatsapp = whatsAppLink_model::find(1);
         view::share('whatsapp_num', $whatsapp->link);
 
-        $reviews = Review_model::latest()->paginate(2, ['*'], 'review');
+        $reviews = Review_model::latest()->get();
             
 
         // $reviews = Review_model::latest()->paginate(2, ['*'], 'review');

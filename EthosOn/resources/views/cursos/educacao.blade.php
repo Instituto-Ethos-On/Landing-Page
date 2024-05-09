@@ -1,3 +1,13 @@
+@push('styles')
+<style>
+    .card-content > p {
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 2 !important;
+    }
+</style>
+@endpush
 <x-layout>
     <x-slot name="meta_descricao">
         Impulsione a sua carreira e aumente a valorização do seu currículo no Ethos On. Fique um passo à frente da concorrência, conquiste sua promoção através de um currículo de excelência.
@@ -54,6 +64,8 @@
     <div class="lg:px-72 w-full max-[768px]:pb-20 max-[768px]:px-10">
         {{ $cursos->appends(['search' => request()->query('search')])->links() }}
     </div>
-    <div class="lg:p-20 p-5 testimonial-data">@include('partials.testimonial')</div>
+    {{-- <div class="lg:p-20 p-5 testimonial-data">@include('partials.testimonial')</div> --}}
+    <div class="w-full pb-96 mb-96 pt-12 lg:px-32">@include('partials.carousel-review')</div>
+
 
 </x-layout>
