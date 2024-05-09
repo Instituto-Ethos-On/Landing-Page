@@ -1,3 +1,13 @@
+@push('styles')
+<style>
+    .card-content > p {
+        overflow: hidden !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 2 !important;
+    }
+</style>
+@endpush
 <x-layout>
     <x-slot name="meta_descricao">
         Torne-se um profissional qualificado e receba os salários mais altos do mercado com a ajuda do Ethos On!

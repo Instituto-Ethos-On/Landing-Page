@@ -1,13 +1,3 @@
-@push('styles')
-<style>
-    .card-content > p {
-        overflow: hidden !important;
-        display: -webkit-box !important;
-        -webkit-box-orient: vertical !important;
-        -webkit-line-clamp: 2 !important;
-    }
-</style>
-@endpush
 <a href="@if ($curso->cl == 1) {{ $curso->pathCL() }}
     @else 
     {{ $curso->path() }} @endif"
