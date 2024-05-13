@@ -212,19 +212,19 @@
                         <div class="flex flex-col border-1 border-teal-600">
                             <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab"
                                 aria-controls="stats" aria-selected="true"
-                                class="transition-colors duration-200 inline-block w-full p-3 text-gray-500 bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
+                                class="transition-colors duration-200 inline-block w-full p-3 text-black bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
                                 o curso</button>
                             <button id="about-tab" data-tabs-target="#about" type="button" role="tab"
                                 aria-controls="about" aria-selected="false"
-                                class="transition-colors duration-200 inline-block w-full p-3 text-gray-500 bg-teal-400 hover:bg-gray-100 focus:outline-none ">Conteúdo</button>
+                                class="transition-colors duration-200 inline-block w-full p-3 text-black bg-teal-400 hover:bg-gray-100 focus:outline-none ">Conteúdo</button>
                             <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
                                 aria-controls="faq" aria-selected="false"
-                                class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-gray-500 bg-teal-400">Como
+                                class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-black bg-teal-400">Como
                                 funciona</button>
                         </div>
                         <button id="investimento-tab" data-tabs-target="#investimento" type="button" role="tab"
                             aria-controls="investimento" aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none text-gray-500">Investimento</button>
+                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none text-black">Investimento</button>
                     </details>
                 </div>
                 <ul class="mx-auto mb-3 w-10/12 hidden text-sm font-medium text-center rounded-2xl sm:flex dark:divide-gray-600 "
@@ -232,27 +232,27 @@
                     <li class="w-full">
                         <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab"
                             aria-controls="stats" aria-selected="true"
-                            class="transition-colors duration-200 inline-block w-full p-3 rounded-s-full bg-gray-100 hover:bg-gray-50 focus:outline-none text-gray-500 font-bold">Sobre
+                            class="transition-colors duration-200 inline-block w-full p-3 rounded-s-full bg-gray-100 hover:bg-gray-50 focus:outline-none text-black font-bold">Sobre
                             o curso</button>
                     </li>
                     <li class="w-full">
                         <button id="about-tab" data-tabs-target="#about" type="button" role="tab"
                             aria-controls="about" aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none  text-gray-500 font-bold">Conteúdo</button>
+                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none text-black font-bold">Conteúdo</button>
                     </li>
                     <li class="w-full">
                         <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
                             aria-controls="faq" aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg bg-gray-100 hover:bg-gray-50 focus:outline-none  text-gray-500 font-bold">Como
+                            class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg bg-gray-100 hover:bg-gray-50 focus:outline-none text-black font-bold">Como
                             funciona</button>
                     </li>
                     <li class="w-full">
                         <button id="investimento-tab" data-tabs-target="#investimento" type="button" role="tab"
                             aria-controls="investimento" aria-selected="false"
-                            class="transition-colors duration-200 rounded-e-full inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-500 font-bold">Investimento</button>
+                            class="transition-colors duration-200 rounded-e-full inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none text-black font-bold">Investimento</button>
                     </li>
                 </ul>
-                <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
+                <div id="fullWidthTabContent" class="border-t border-gray-200 ">
                     <div class="hidden lg:px-44 bg-teal-500 rounded-2xl md:p-8 max-[768px]:p-4" id="stats"
                         role="tabpanel" aria-labelledby="stats-tab">
                         <h1 class="mb-2 text-3xl font-bold text-white pb-2">Objetivo</h1>
@@ -281,7 +281,14 @@
                         <div class="text-white">
                             <div class="pb-5">
                                 <h1 class="font-bold text-2xl">O que você vai estudar?</h1>
-                                <p class="font-regular text-xl"> {!! $thisCurso->conteudo !!}</p>
+                                @push('styles')
+                                    <style>
+                                    .content-bold p {
+                                        font-weight: bold;
+                                    }
+                                    </style>
+                                @endpush
+                                <div class="font-bold text-regular"> {!! $thisCurso->conteudo !!}</div>
                             </div>
                             <div>
                                 <h1 class="font-bold text-xl">Carga Horária do Curso:</h1>

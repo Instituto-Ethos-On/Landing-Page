@@ -56,14 +56,16 @@
 
     {{-- cards dos cursos --}}
     <div>
-        @foreach ($cursos as $curso)
+        @forelse ($cursos as $curso)
         <div class="w-full px-2 mb-10 flex justify-center gap-2">
             <x-dynamic-card class="" :curso="$curso" />
         </div>
-        @endforeach
-        <div class="lg:px-72 w-full max-[768px]:pb-20 max-[768px]:px-10">
-            {{ $cursos->appends(['search' => request()->query('search')])->links() }}
-        </div>
+        @empty
+        <div class="text-center p-5">Nenhum curso encontrado</div>
+        @endforelse
+    </div>
+    <div class="lg:px-72 w-full max-[768px]:pb-20 max-[768px]:px-10">
+        {{ $cursos->appends(['search' => request()->query('search')])->links() }}
     </div>
     {{-- <div class="lg:p-20 p-5 testimonial-data">@include('partials.testimonial')</div> --}}
     <div class="w-full pb-96 mb-96 pt-12 lg:px-32">@include('partials.carousel-review')</div>

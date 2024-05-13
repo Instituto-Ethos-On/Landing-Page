@@ -95,7 +95,7 @@ class Cursos_prod_Controller extends AdminController
         $form->ckeditor('conteudo', __('Conteúdo'));
         $form->number('duracao', __('Duracao'))->pattern('[0-9]');
         $form->number('total', __('Duracao Total (hrs)'))->pattern('[0-9]');
-        $form->number('preco', __('Preco'));
+        $form->currency('preco', __('Preco'))->symbol('R$');;
         $form->image('image', __('Image'));
         
         return $form;
