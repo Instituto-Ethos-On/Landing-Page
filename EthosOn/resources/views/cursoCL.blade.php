@@ -220,7 +220,7 @@
                         <div class="text-white">
                             <div class="pb-5">
                                 <h1 class="font-bold text-2xl">O que você vai estudar?</h1>
-                                <p class="font-regular text-xl"> {!! $thisCurso->conteudo !!}</p>
+                                <div class="font-bold text-regular"> {!! $thisCurso->conteudo !!}</div>
                             </div>
                             <div>
                                 <h1 class="font-bold text-xl">Carga Horária do Curso:</h1>

@@ -54,12 +54,14 @@
     </div>
 
     {{-- cards dos cursos --}}
-    <div>
-        @foreach ($cursos as $curso)
+    <div>        
+        @forelse ($cursos as $curso)
         <div class="w-full px-2 mb-10 flex justify-center gap-2">
             <x-dynamic-card class="" :curso="$curso" />
         </div>
-        @endforeach
+        @empty
+        <div class="text-center p-5">Nenhum curso encontrado</div>
+        @endforelse
     </div>
     <div class="lg:px-72 w-full max-[768px]:pb-20 max-[768px]:px-10">
         {{ $cursos->appends(['search' => request()->query('search')])->links() }}

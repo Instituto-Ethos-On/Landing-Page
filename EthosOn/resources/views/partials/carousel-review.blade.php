@@ -1,4 +1,4 @@
-<div id="default-carousel" class="z-0 relative " data-carousel="static">
+<div id="default-carousel" class="z-0 relative " data-carousel="slide">
     <!-- Carousel wrapper -->
     <div
         class=" rounded-t-2xl py-5 text-center font-bold text-2xl text-white bg-gradient-to-r from-teal-400 to-teal-500">
@@ -11,7 +11,7 @@
                 <div class="flex items-center flex-col">
                     <img src="{{ asset('uploads/' . $review->image) }}" alt="imagem do aluno {{ $review->nome }}"
                         class="rounded-full size-32 object-cover ">
-                    <div class="text-semibold text-lg text-justify w-9/12 overflow-hidden leading-normal h-fit relative pt-5">
+                    <div class="text-semibold text-lg text-justify w-9/12 overflow-hidden leading-1 h-fit relative pt-5">
                         {!! $review->descricao !!}
                         <h2 class="text-2xl font-bold text-end">{{ $review->nome }}</h2>
                         <h2 class="text-xl text-teal-400 font-smibold text-end">{{ $review->curso }}</h2>
