@@ -127,8 +127,7 @@
                             class="fa-solid fa-expand"></i></div>
                 </div>
                 <h2 class="pb-4 font-bold text-teal-400 text-3xl drop-shadow">{{ $thisCurso->nome }}</h2>
-                <div data-modal-target="modal-apresentacao"
-                    data-modal-toggle="modal-apresentacao">
+                <div data-modal-target="modal-apresentacao" data-modal-toggle="modal-apresentacao">
                     <p class="curso-apresentacao">{{ $thisCurso->apresentacao }}</p>
                 </div>
         </x-slot>
@@ -191,7 +190,11 @@
             <x-button class="-mt-5 z-10">
                 {{-- TODO: colocar link dinâmico --}}
                 <x-slot name="linkCurso">
-                    {{ $whatsapp_num }}
+                    @if (!empty($thisCurso->link))
+                        {{ $thisCurso->link }}
+                    @else
+                        {{ $whatsapp_num }}
+                    @endif
                 </x-slot>
                 Matricule-se agora
             </x-button>
@@ -256,7 +259,7 @@
                     <div class="hidden lg:px-44 bg-teal-500 rounded-2xl md:p-8 max-[768px]:p-4" id="stats"
                         role="tabpanel" aria-labelledby="stats-tab">
                         <h1 class="mb-2 text-3xl font-bold text-white pb-2">Objetivo</h1>
-                        <p class="text-gray-50 pb-2 text-lg font-semibold">{{ $thisCurso->objetivo }}</p>
+                        <div class="text-gray-50 pb-2 text-lg font-semibold">{!! $thisCurso->objetivo !!}</div>
                         <div class="flex justify-center pt-2 gap-2 text-white max-[768px]:flex-col">
                             <div class="flex items-center gap-2 w-52">
                                 <div class="bg-teal-400 rounded-full p-3 w-fit h-fit"><i
@@ -266,7 +269,8 @@
                             <div class="flex items-center gap-2 w-72 lg:w-80">
                                 <div class="bg-teal-400 rounded-full p-3 w-fit h-fit "><i
                                         class="fas fa-check fa-xl"></i></div>
-                                <span class="h-1/2 font-bold">Certificado emitido por Faculdade credenciada no MEC</span>
+                                <span class="h-1/2 font-bold">Certificado emitido por Faculdade credenciada no
+                                    MEC</span>
                             </div>
                             <div class="flex items-center gap-2 w-72">
                                 <div class="bg-teal-400 rounded-full p-3 w-fit h-fit"><i
@@ -283,9 +287,9 @@
                                 <h1 class="font-bold text-2xl">O que você vai estudar?</h1>
                                 @push('styles')
                                     <style>
-                                    .content-bold p {
-                                        font-weight: bold;
-                                    }
+                                        .content-bold p {
+                                            font-weight: bold;
+                                        }
                                     </style>
                                 @endpush
                                 <div class="font-bold text-regular"> {!! $thisCurso->conteudo !!}</div>
@@ -344,17 +348,79 @@
                                 <h1 class="font-bold text-3xl">Valor</h1>
                             </div>
                             <div class="font-semibold text-lg">
-                                <p>PARCELA ÚNICA / À VISTA
-                                    {{ Number::currency($thisCurso->preco, in: 'BRL', locale: 'pt-br') }}</p>
-                                <p>TAXA DE MATRÍCULA R$ 49,90</p>
-                                @php
-                                    Methods::divided($thisCurso->preco, $parcelas);
-                                @endphp
+                                <p>PARCELA ÚNICA / À VISTA:</p>
+                                <h4 class="text-2xl">{{ Number::currency($thisCurso->preco, in: 'BRL', locale: 'pt-br') }}</h4>
+                                <p>TAXA DE MATRÍCULA:</p>
+                                <p>R$ 49,90</p>
+                                <div id="accordion-credit" data-accordion="collapse">
+
+
+                                    <div id="accordion-collapse" data-accordion="collapse">
+                                        @if (!empty($thisCurso->cartao_credito))
+                                            <h2 id="accordion-collapse-heading-1" class="bg-transparent">
+                                                <button type="button"
+                                                    class="bg-transparent flex items-center justify-between w-full p-5 rtl:text-right text-white font-bold border border-b-0 border-gray-200 rounded-sm focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 hover:text-black  gap-3"
+                                                    data-accordion-target="#accordion-collapse-body-1"
+                                                    aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                                                    <span>Cartão de Crédito</span>
+                                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 10 6">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="M9 5 5 1 1 5" />
+                                                    </svg>
+                                                </button>
+                                            </h2>
+                                            <div id="accordion-collapse-body-1" class="hidden"
+                                                aria-labelledby="accordion-collapse-heading-1">
+                                                <div
+                                                    class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                                                    <div class="mb-2 text-whit font-bold">
+                                                        {!! $thisCurso->cartao_credito !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        <h2 id="accordion-collapse-heading-2">
+                                            <button type="button"
+                                                class="bg-transparent flex items-center justify-between w-full p-5 rtl:text-right text-white font-bold border border-b-0 border-gray-200 rounded-sm focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 hover:text-black  gap-3"
+                                                data-accordion-target="#accordion-collapse-body-2"
+                                                @if (empty($thisCurso->cartao_credito))
+                                                    aria-expanded="true" 
+                                                @else
+                                                    aria-expanded="false" 
+                                                @endif
+                                                aria-controls="accordion-collapse-body-2">
+                                                <span>Boleto</span>
+                                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 10 6">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                                                </svg>
+                                            </button>
+                                        </h2>
+                                        <div id="accordion-collapse-body-2" class="hidden"
+                                            aria-labelledby="accordion-collapse-heading-2">
+                                            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                                                @php
+                                                    Methods::divided($thisCurso->preco, $parcelas, $thisCurso);
+                                                @endphp
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <div class="pt-5">
                                     <x-button>
                                         {{-- TODO: colocar link para oferta --}}
                                         <x-slot name="linkCurso">
-                                            {{ $whatsapp_num }}
+                                            @if (!empty($thisCurso->link))
+                                                {{ $thisCurso->link }}
+                                            @else
+                                                {{ $whatsapp_num }}
+                                            @endif
                                         </x-slot>
                                         Consulte a oferta especial
                                     </x-button>

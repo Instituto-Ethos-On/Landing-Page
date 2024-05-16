@@ -16,4 +16,5 @@ Route::group([
     $router->resource('review_models', Review_Controller::class);
     $router->resource('parcelas_models', Parcelas_controller::class);
     $router->resource('whats-app-link_models', whatsAppLink_controller::class);
+    $router->resource('desconto_model', Desconto_controller::class);
 });

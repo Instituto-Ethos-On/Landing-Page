@@ -24,6 +24,8 @@ class CreateCursosProdTable extends Migration
             $table->longText('conteudo');
             $table->integer('total');
             $table->decimal('preco', 12, 2);
+            $table->string('desconto')->nullable();
+            $table->string('link')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

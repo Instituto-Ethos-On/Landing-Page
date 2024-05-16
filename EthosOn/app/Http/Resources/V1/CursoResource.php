@@ -20,12 +20,14 @@ class CursoResource extends JsonResource
             'area' => $this->area,
             'apresentacao' => $this->apresentacao,
             'objetivo' => $this->objetivo,
-            'conteudo' => $this->objetivo,
+            'conteudo' => $this->conteudo,
             'cl' => $this->cl,
             'duracao' => $this->duracao,
             'total' => $this->total,
             'preco' => $this->preco,
             'image' => $this->image,
+            'link' => $this->link,
+            'desconto' => $this->desconto
         ];
     }
 }

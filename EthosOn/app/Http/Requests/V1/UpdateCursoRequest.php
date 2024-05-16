@@ -35,6 +35,8 @@ class UpdateCursoRequest extends FormRequest
                 'duracao' => ['required'],
                 'total' => ['required'],
                 'preco' => ['required'],
+                'link' => ['sometimes', 'nullable'],
+                'desconto' => ['sometimes', 'nullable']
             ];
         } else {
             return [
@@ -43,10 +45,12 @@ class UpdateCursoRequest extends FormRequest
                 'apresentacao' => ['sometimes', 'required'],
                 'objetivo' => ['sometimes', 'required'],
                 'conteudo' => ['sometimes', 'required'],
-                'cl' => ['sometimes', 'nullable'],
+                'cl' => ['sometimes', 'required'],
                 'duracao' => ['sometimes', 'required'],
                 'total' => ['sometimes', 'required'],
                 'preco' => ['sometimes', 'required'],
+                'link' => ['sometimes', 'required'],
+                'desconto' => ['sometimes', 'required']
             ];
         }
         

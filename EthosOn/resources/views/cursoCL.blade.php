@@ -6,7 +6,7 @@
         {{ $thisCurso->area }}
     </x-slot>
     <x-slot name="title">
-       {{ $thisCurso->nome }} - Ethos on
+        {{ $thisCurso->nome }} - Ethos on
     </x-slot>
     <x-banner>
         <x-slot name="image1">
@@ -116,7 +116,11 @@
                     pelo Ethos On.</p>
                 <x-button class="pt-10">
                     <x-slot name="linkCurso">
-                        {{ $whatsapp_num }}
+                        @if (!empty($thisCurso->link))
+                            {{ $thisCurso->link }}
+                        @else
+                            {{ $whatsapp_num }}
+                        @endif
                     </x-slot>
                     matricule-se agora
                 </x-button>
@@ -172,7 +176,7 @@
                                 aria-controls="stats" aria-selected="true"
                                 class="transition-colors duration-200 inline-block w-full p-3 text-white bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
                                 o curso</button>
-                           
+
                             <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
                                 aria-controls="faq" aria-selected="false"
                                 class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-white bg-teal-400">Como
@@ -277,16 +281,22 @@
                             </div>
                             <div class="font-semibold text-lg">
                                 <ul>
-                                    <li>À vista por R$ 270,00</li>
+                                    <li>À vista por
+                                        {{ Number::currency(floor($thisCurso->preco - $thisCurso->preco * 0.09), in: 'BRL', locale: 'pt-br') }}
+                                    </li>
                                     @php
-                                        Methods::divided($thisCurso->preco, $parcelas);
+                                        Methods::divided($thisCurso->preco, $parcelas, $thisCurso);
                                     @endphp
                                 </ul>
                                 <div class="pt-5">
                                     <x-button>
                                         {{-- TODO: colocar link para oferta --}}
                                         <x-slot name="linkCurso">
-                                            {{ $whatsapp_num }}
+                                            @if (!empty($thisCurso->link))
+                                                {{ $thisCurso->link }}
+                                            @else
+                                                {{ $whatsapp_num }}
+                                            @endif
                                         </x-slot>
                                         Consulte a oferta especial
                                     </x-button>

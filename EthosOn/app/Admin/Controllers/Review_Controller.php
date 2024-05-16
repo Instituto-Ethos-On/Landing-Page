@@ -28,7 +28,6 @@ class Review_Controller extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('nome', __('Nome'));
-        $grid->column('titulo', __('Título'));
         $grid->column('descricao', __('Descricao'));
         $grid->column('curso', __('Curso'));
         $grid->column('image', __('Image'));
@@ -50,7 +49,6 @@ class Review_Controller extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('nome', __('Nome'));
-        $show->field('titulo', __('Título'));
         $show->field('descricao', __('Descricao'));
         $show->field('curso', __('Curso'));
         $show->field('image', __('Image'));
@@ -69,7 +67,6 @@ class Review_Controller extends AdminController
     {
         $form = new Form(new Review_model());
         
-        $form->text('titulo', __('Título'));
         $form->text('nome', __('Nome'));
         $form->ckeditor('descricao', __('Descricao'));
         $form->text('curso', __('Curso'));

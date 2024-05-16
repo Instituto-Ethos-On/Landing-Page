@@ -32,6 +32,8 @@ class BulkStoreCursoRequest extends FormRequest
             '*.duracao' => ['required'],
             '*.total' => ['required'],
             '*.preco' => ['required'],
+            '*.link' => ['sometimes', 'nullable'],
+            '*.desconto' =>['sometimes', 'nullable']
         ];
     }
 }

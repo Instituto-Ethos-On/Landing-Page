@@ -45,6 +45,9 @@ class Cursos_prod_Controller extends AdminController
         $grid->column('duracao', __('Duracao'));
         $grid->column('preco', __('Preco'));
         $grid->column('image', __('Image'));
+        $grid->column('link', __('Link'));
+        $grid->column('desconto', __('Desconto'));
+        $grid->column('cartao_credito', __('Cartão de crédito'))->bool();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -71,7 +74,10 @@ class Cursos_prod_Controller extends AdminController
         $show->field('total', __('Total(hrs)'));
         $show->field('duracao', __('Duracao'));
         $show->field('preco', __('Preco'));
+        $show->field('desconto', __('Desconto'));
         $show->field('image', __('Image'));
+        $show->field('link', __('Link'));
+        $show->field('cartao_credito', __('Cartão de crédito'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -91,11 +97,14 @@ class Cursos_prod_Controller extends AdminController
         $form->select('area', __('Area'))->options(["engenharia" => "engenharia", "psicologia" => "psicologia", "educacao" => "educacao", "direito" => "direito", "tecnologia" => "tecnologia", "gestao-e-negocios" => "gestao-e-negocios", "saude" => "saude"]);
         $form->switch('cl', __('CL'))->defaultOnEmpty(0);
         $form->textarea('apresentacao', __('Apresentacao'));
-        $form->textarea('objetivo', __('Objetivo'));
+        $form->ckeditor('objetivo', __('Objetivo'));
         $form->ckeditor('conteudo', __('Conteúdo'));
         $form->number('duracao', __('Duracao'))->pattern('[0-9]');
         $form->number('total', __('Duracao Total (hrs)'))->pattern('[0-9]');
-        $form->currency('preco', __('Preco'))->symbol('R$');;
+        $form->currency('preco', __('Preco'))->symbol('R$');
+        $form->text('desconto', __('Desconto'));
+        $form->ckeditor('cartao_credito', __('Desconto Cartão de crédito'));
+        $form->url('link', __('Link'));
         $form->image('image', __('Image'));
         
         return $form;
