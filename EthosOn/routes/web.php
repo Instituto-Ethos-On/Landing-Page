@@ -107,9 +107,9 @@ Route::get('reviews-getmore', function(Request $request){
 //         'reviews' => Review_Model::latest()->get()
 //     ]);
 // });
-Route::fallback(function () {
-    return redirect()->route('index');
-});
+// Route::fallback(function () {
+//     return redirect()->route('index');
+// });
 
 // Route::get('/setup', function(){
 //     $credentials = [

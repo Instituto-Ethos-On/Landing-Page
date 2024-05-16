@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cursos_prod extends Model
 {
-    protected $fillable = ['nome', 'area', 'apresentacao', 'objetivo', 'conteudo', 'cl', 'duracao', 'total', 'preco'];
+    protected $fillable = ['nome', 'area', 'apresentacao', 'objetivo', 'conteudo', 'cl', 'duracao', 'total', 'preco', 'desconto', 'link'];
 
     protected $table = 'Cursos_prod';
 
@@ -49,8 +49,6 @@ class Cursos_prod extends Model
         });
     }
 
-
-
     public static function find($id)
     {
         $cursos = self::all();
@@ -61,4 +59,5 @@ class Cursos_prod extends Model
             }
         }
     }
-}
+}   
+

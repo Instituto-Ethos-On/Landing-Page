@@ -29,7 +29,6 @@ class Parcelas_controller extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('nome', __('Nome'));
         $grid->column('quantidade', __('Quantidade'));
-        $grid->column('juros', __('Juros'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -49,7 +48,6 @@ class Parcelas_controller extends AdminController
         $show->field('id', __('Id'));
         $show->field('nome', __('Nome'));
         $show->field('quantidade', __('Quantidade'));
-        $show->field('juros', __('Juros'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -67,7 +65,6 @@ class Parcelas_controller extends AdminController
 
         $form->text('nome', __('Nome'));
         $form->text('quantidade', __('Quantidade'));
-        $form->text('juros', __('Juros'));
 
         return $form;
     }
