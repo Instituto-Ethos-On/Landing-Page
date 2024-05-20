@@ -31,7 +31,7 @@ class Methods {
                 array_push($price_str, $value);
             }
         }
-        // chama funcção para renderizar conteúdo
+        // chama função para renderizar conteúdo
         UI::render($course, $descounts, $table, $price_str);
         
     }
@@ -39,9 +39,9 @@ class Methods {
 
 class UI {
     public static function render(Cursos_prod $course, array $descounts, array $table, array $price_str){
-        if($course->cl != 1){
-            echo '<p>descontos de até ' . max($descounts) * 100 . '% no boleto! Converse com um de nossos atendentes para obter mais detalhes.';
-        }
+       
+        echo '<p>Converse com um de nossos atendentes para obter mais detalhes</p>';
+
         // faz o display dos valores (!SOLID)
         for ($i = 0; $i < count($table); $i++){
             echo '<p>'. floatval($table[$i]) . 'X ' . $price_str[$i] . '</p>';

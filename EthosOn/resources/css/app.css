@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #21C9D5;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #FFFF F;
+    }
     html {
         font-family: "Poppins", sans-serif;
         src: url("public/fonts/Poppins/Poppins-Regular.ttf}}")

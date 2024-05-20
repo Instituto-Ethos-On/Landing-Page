@@ -174,17 +174,17 @@
                         <div class="flex flex-col border-1 border-teal-600">
                             <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab"
                                 aria-controls="stats" aria-selected="true"
-                                class="transition-colors duration-200 inline-block w-full p-3 text-white bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
+                                class="transition-colors duration-200 inline-block w-full p-3 text-white bg-teal-400 hover:bg-gray-50 focus:outline-none font-bold">Sobre
                                 o curso</button>
 
                             <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
                                 aria-controls="faq" aria-selected="false"
-                                class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-white bg-teal-400">Como
+                                class="transition-colors duration-200 inline-block w-full p-3  hover:bg-gray-50 focus:outline-none text-white bg-teal-400 font-bold">Como
                                 funciona</button>
                         </div>
                         <button id="investimento-tab" data-tabs-target="#investimento" type="button" role="tab"
                             aria-controls="investimento" aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 text-white">Investimento</button>
+                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 text-white font-bold">Investimento</button>
                     </details>
                 </div>
                 <ul class="mx-auto mb-3 w-10/12 hidden text-sm font-medium text-center rounded-2xl sm:flex dark:divide-gray-600 "
@@ -199,7 +199,7 @@
                     <li class="w-full">
                         <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq"
                             aria-selected="false"
-                            class="transition-colors font-bold duration-200 inline-block w-full p-3 bg-gray-100 hover:bg-gray-50 focus:outline-none text-gray-500">Como
+                            class="transition-colors font-bold duration-200 inline-block w-full p-3 bg-gray-100 hover:bg-teal-400 focus:outline-none text-gray-500">Como
                             funciona</button>
                     </li>
                     <li class="w-full">

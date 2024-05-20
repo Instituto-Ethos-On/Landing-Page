@@ -27,7 +27,8 @@ class CursoResource extends JsonResource
             'preco' => $this->preco,
             'image' => $this->image,
             'link' => $this->link,
-            'desconto' => $this->desconto
+            'desconto' => $this->desconto,
+            'cartao_credito' => $this->cartao_credito
         ];
     }
 }

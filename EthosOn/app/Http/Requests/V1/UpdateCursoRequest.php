@@ -36,7 +36,8 @@ class UpdateCursoRequest extends FormRequest
                 'total' => ['required'],
                 'preco' => ['required'],
                 'link' => ['sometimes', 'nullable'],
-                'desconto' => ['sometimes', 'nullable']
+                'desconto' => ['sometimes', 'nullable'],
+                'cartao_credito' => ['sometimes', 'nullable']
             ];
         } else {
             return [
@@ -50,7 +51,8 @@ class UpdateCursoRequest extends FormRequest
                 'total' => ['sometimes', 'required'],
                 'preco' => ['sometimes', 'required'],
                 'link' => ['sometimes', 'required'],
-                'desconto' => ['sometimes', 'required']
+                'desconto' => ['sometimes', 'required'],
+                'cartao_credito' => ['sometimes', 'required']
             ];
         }
         

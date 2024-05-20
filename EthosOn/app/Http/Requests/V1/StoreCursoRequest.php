@@ -33,7 +33,8 @@ class StoreCursoRequest extends FormRequest
             'total' => ['required'],
             'preco' => ['required'],
             'link' => ['sometimes', 'nullable'],
-            'desconto' => ['sometimes', 'nullable']
+            'desconto' => ['sometimes', 'nullable'],
+            'cartao_credito' => ['sometimes', 'nullable']
         ];
     }
 }

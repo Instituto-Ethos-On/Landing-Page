@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cursos_prod extends Model
 {
-    protected $fillable = ['nome', 'area', 'apresentacao', 'objetivo', 'conteudo', 'cl', 'duracao', 'total', 'preco', 'desconto', 'link'];
+    protected $fillable = ['nome', 'area', 'apresentacao', 'objetivo', 'conteudo', 'cl', 'duracao', 'total', 'preco', 'desconto', 'link', 'cartao_credito'];
 
     protected $table = 'Cursos_prod';
 
@@ -21,10 +21,9 @@ class Cursos_prod extends Model
         return url("/pos-graduacoes/CL/{$this->id}-" . Str::slug($this->nome));
     }
 
-    public function scopeFilter($query, array $filters, array $customArea = null, int $CL = null)
+    public function scopeFilter($query, array $customArea = null, int $CL = null)
     {
         $searchTerm = request('search');
-
         $query->where(function ($query) use ($searchTerm, $customArea, $CL) {
             if (!empty($searchTerm)) {
                 $query->where(function ($query) use ($searchTerm) {
@@ -43,8 +42,8 @@ class Cursos_prod extends Model
                     }
                 });
             }
-            if (!is_null($CL) && $CL == 1) {
-                $query->where('cl', '1');
+            if (!is_null($CL)) {
+                $query->where('cl', $CL);
             }
         });
     }

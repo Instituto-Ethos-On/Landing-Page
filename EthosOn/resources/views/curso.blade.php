@@ -215,19 +215,19 @@
                         <div class="flex flex-col border-1 border-teal-600">
                             <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab"
                                 aria-controls="stats" aria-selected="true"
-                                class="transition-colors duration-200 inline-block w-full p-3 text-black bg-teal-400 hover:bg-gray-50 focus:outline-none ">Sobre
+                                class="transition-colors duration-200 inline-block w-full p-3 text-white bg-teal-400 hover:bg-gray-50 focus:outline-none font-bold">Sobre
                                 o curso</button>
                             <button id="about-tab" data-tabs-target="#about" type="button" role="tab"
                                 aria-controls="about" aria-selected="false"
-                                class="transition-colors duration-200 inline-block w-full p-3 text-black bg-teal-400 hover:bg-gray-100 focus:outline-none ">Conteúdo</button>
+                                class="transition-colors duration-200 inline-block w-full p-3 text-white bg-teal-400 hover:bg-gray-100 focus:outline-none font-bold">Conteúdo</button>
                             <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab"
                                 aria-controls="faq" aria-selected="false"
-                                class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-black bg-teal-400">Como
+                                class="transition-colors duration-200 inline-block w-full p-3 rounded-se-lg  hover:bg-gray-50 focus:outline-none text-white font-bold bg-teal-400">Como
                                 funciona</button>
                         </div>
                         <button id="investimento-tab" data-tabs-target="#investimento" type="button" role="tab"
                             aria-controls="investimento" aria-selected="false"
-                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none text-black">Investimento</button>
+                            class="transition-colors duration-200 inline-block w-full p-3 bg-teal-400 hover:bg-gray-100 focus:outline-none text-white font-bold">Investimento</button>
                     </details>
                 </div>
                 <ul class="mx-auto mb-3 w-10/12 hidden text-sm font-medium text-center rounded-2xl sm:flex dark:divide-gray-600 "
@@ -352,14 +352,14 @@
                                 <h4 class="text-2xl">{{ Number::currency($thisCurso->preco, in: 'BRL', locale: 'pt-br') }}</h4>
                                 <p>TAXA DE MATRÍCULA:</p>
                                 <p>R$ 49,90</p>
-                                <div id="accordion-credit" data-accordion="collapse">
+                                <div id="accordion-credit">
 
 
-                                    <div id="accordion-collapse" data-accordion="collapse">
+                                    <div id="accordion-collapse" data-accordion="collapse" class="border-collapse">
                                         @if (!empty($thisCurso->cartao_credito))
-                                            <h2 id="accordion-collapse-heading-1" class="bg-transparent">
+                                            <h2 id="accordion-collapse-heading-1" class="bg-transparent border-collapse">
                                                 <button type="button"
-                                                    class="bg-transparent flex items-center justify-between w-full p-5 rtl:text-right text-white font-bold border border-b-0 border-gray-200 rounded-sm focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 hover:text-black  gap-3"
+                                                    class="bg-transparent flex items-center justify-between w-full p-5 rtl:text-right text-white font-bold border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 hover:text-black  gap-3"
                                                     data-accordion-target="#accordion-collapse-body-1"
                                                     aria-expanded="true" aria-controls="accordion-collapse-body-1">
                                                     <span>Cartão de Crédito</span>
@@ -375,7 +375,7 @@
                                             <div id="accordion-collapse-body-1" class="hidden"
                                                 aria-labelledby="accordion-collapse-heading-1">
                                                 <div
-                                                    class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                                                    class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900">
                                                     <div class="mb-2 text-whit font-bold">
                                                         {!! $thisCurso->cartao_credito !!}
                                                     </div>
@@ -384,7 +384,7 @@
                                         @endif
                                         <h2 id="accordion-collapse-heading-2">
                                             <button type="button"
-                                                class="bg-transparent flex items-center justify-between w-full p-5 rtl:text-right text-white font-bold border border-b-0 border-gray-200 rounded-sm focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 hover:text-black  gap-3"
+                                                class="bg-transparent flex items-center justify-between w-full p-5 rtl:text-right text-white font-bold border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 hover:text-black  gap-3"
                                                 data-accordion-target="#accordion-collapse-body-2"
                                                 @if (empty($thisCurso->cartao_credito))
                                                     aria-expanded="true" 
@@ -403,7 +403,7 @@
                                         </h2>
                                         <div id="accordion-collapse-body-2" class="hidden"
                                             aria-labelledby="accordion-collapse-heading-2">
-                                            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                                            <div class="p-5 border border-gray-200 dark:border-gray-700">
                                                 @php
                                                     Methods::divided($thisCurso->preco, $parcelas, $thisCurso);
                                                 @endphp

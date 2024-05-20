@@ -31,22 +31,22 @@ class CursosController extends Controller
         return view('cursoCL', compact('thisCurso', 'parcelas'));
     }
 
-    // TODO: refactor das funções de paginas, fazer novo filtro para entregar apenas cursos referentes a area
-    // rotas dos cursos
+
     public function page_posgraduacoes()
     {
         return view('cursos.posgraduacoes', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), null)
+                ->filter(null, 0)
                 ->paginate(5),
         ]);
+
     }
 
     public function page_engenharia()
     {
         return view('cursos.engenharia', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['engenharia'])
+                ->filter(['engenharia'], 0)
                 ->paginate(5),
         ]);
     }
@@ -55,7 +55,7 @@ class CursosController extends Controller
     {
         return view('cursos.saude', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['saude'])
+                ->filter(['saude'], 0)
                 ->paginate(5),
         ]);
     }
@@ -64,7 +64,7 @@ class CursosController extends Controller
     {
         return view('cursos.educacao', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['educacao'], 0)
+                ->filter(['educacao'], 0)
                 ->paginate(5),
         ]);
     }
@@ -73,7 +73,7 @@ class CursosController extends Controller
     {
         return view('cursos.tecnologia', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['tecnologia'], 0)
+                ->filter(['tecnologia'], 0)
                 ->paginate(5),
         ]);
     }
@@ -82,7 +82,7 @@ class CursosController extends Controller
     {
         return view('cursos.direito', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['direito'], 0)
+                ->filter(['direito'], 0)
                 ->paginate(5),
 
         ]);
@@ -92,7 +92,7 @@ class CursosController extends Controller
     {
         return view('cursos.gestao-de-negocios', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['gestao-e-negocios'], 0)
+                ->filter(['gestao-e-negocios'], 0)
                 ->paginate(5),
 
         ]);
@@ -102,17 +102,7 @@ class CursosController extends Controller
     {
         return view('cursos.psicologia', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), ['psicologia'], 0)
-                ->paginate(5),
-
-        ]);
-    }
-
-    public function page_corporativa()
-    {
-        return view('cursos.educacao-corporativa', [
-            'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), request(['search'], 0))
+                ->filter(['psicologia'], 0)
                 ->paginate(5),
 
         ]);
@@ -122,9 +112,16 @@ class CursosController extends Controller
     {
         return view('cursos.aperfeicoamento', [
             'cursos' => Cursos_prod::orderBy('nome', 'asc')
-                ->filter(request(['search']), request(['search']), 1)
+                ->filter(request(['search']), 1)
                 ->paginate(5),
 
         ]);
     }
+
+    public function page_corporativa()
+    {
+        return view('cursos.educacao-corporativa');
+    }
+
+    
 }
