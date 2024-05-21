@@ -405,7 +405,9 @@
                                             aria-labelledby="accordion-collapse-heading-2">
                                             <div class="p-5 border border-gray-200 dark:border-gray-700">
                                                 @php
-                                                    Methods::divided($thisCurso->preco, $parcelas, $thisCurso);
+                                                    $rendered_content = App\libraries\PaymentMethods::divided($thisCurso->preco, $parcelas, $thisCurso);
+
+                                                    echo $rendered_content;
                                                 @endphp
                                             </div>
                                         </div>

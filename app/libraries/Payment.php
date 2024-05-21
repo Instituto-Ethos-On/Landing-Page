@@ -1,26 +1,23 @@
 <?php
 
+namespace App\libraries;
+
 use App\Models\Cursos_prod;
 use Illuminate\Support\Number;
 use App\Models\Parcelas_model;
 
 
-class Methods {
+class PaymentMethods {
     public static function divided(float $price, Parcelas_model $installments, Cursos_prod $course) {
-        $table = explode(',', $installments->quantidade); //[6.0, 9.0, 12.0, 15.0, 18.0, 20.0, 24.0]
+        $table = explode(',', $installments->quantidade);
         $price_str = [];
         if(!empty($course->desconto)){
             $descounts = explode(',', $course->desconto);
             for ($i = 0; $i < count($table); $i++){
-                // primeiro é aplicado o desconte se ele existir no objeto
                 $temp_price = $price - ($price*$descounts[$i]);
-                // fazemos a divisão para receber o valor da parcela
                 $float_value = ($temp_price/floatval($table[$i]));
-                // formatamos o valor para arredondar
                 $formatted_value = floor($float_value * 100) / 100;
-                // formatamos o número para a moeda BRL reais
                 $value = Number::currency($formatted_value, in: 'BRL', locale: 'pt-br');
-                // adiciona o valor no array
                 array_push($price_str, $value); 
             }
         } else {
@@ -31,20 +28,28 @@ class Methods {
                 array_push($price_str, $value);
             }
         }
-        // chama função para renderizar conteúdo
-        UI::render($course, $descounts, $table, $price_str);
-        
+        // Call the render method and store the returned content
+        $rendered_content = PaymentsUi::render($course, $table, $price_str);
+
+        // Return the rendered content
+        return $rendered_content;
     }
 }
 
-class UI {
-    public static function render(Cursos_prod $course, array $descounts, array $table, array $price_str){
-       
-        echo '<p>Converse com um de nossos atendentes para obter mais detalhes</p>';
+class PaymentsUi {
+    public static function render(Cursos_prod $course, array $table, array $price_str){
+        // Initialize an empty string to store the rendered content
+        $content = '';
 
-        // faz o display dos valores (!SOLID)
+        // Add introductory message
+        $content .= '<p>Converse com um de nossos atendentes para obter mais detalhes</p>';
+
+        // Display installment options
         for ($i = 0; $i < count($table); $i++){
-            echo '<p>'. floatval($table[$i]) . 'X ' . $price_str[$i] . '</p>';
+            $content .= '<p>'. floatval($table[$i]) . 'X ' . $price_str[$i] . '</p>';
         }
+
+        // Return the rendered content
+        return $content;
     }
 }
