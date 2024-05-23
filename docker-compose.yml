@@ -9,7 +9,7 @@ services:
     image: ethoson-image:latest
     container_name: ethoson-site
     expose:
-      - 80:8000
+      - 8000
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -17,26 +17,18 @@ services:
       - ./database:/var/www/database
     networks:
       - ethoson-network
-  nginx:
-    image: nginx:alpine
-    container_name: nginx-container
+  caddy:
+    image: caddy:2.7-alpine
+    container_name: caddy-container
     restart: unless-stopped
     ports:
       - 80:80
       - 443:443
+      - 443:443/udp
     volumes:
-      - ./:/var/www
-      - ./docker-compose/nginx:/etc/nginx/conf.d/
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
+      - ./Caddyfile:/etc/caddy/Caddyfile
     networks:
       - ethoson-network
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -W /var/www/certbot --keep-until-expiring --email ${EMAIL_DEPLOY} -d ${SITE_DEPLOY} --agree-tos
 networks:
   ethoson-network:
     driver: bridge

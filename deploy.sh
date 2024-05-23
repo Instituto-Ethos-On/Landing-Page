@@ -19,3 +19,6 @@ sleep 30
 echo "$(date --utc +'%F-%H%M%S'): Scaling old server down..."
 docker container rm -f $OLD_CONTAINER
 docker compose up -d --no-reps --scale app=1 --no-recreate app
+
+echo "$(date --utc +'%F-%H%M%S'): Reloading Caddy..."
+docker exec caddy-container caddy reload -c /etc/caddy/Caddyfile
