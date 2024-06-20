@@ -25,3 +25,7 @@ RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 WORKDIR /var/www
 USER $user
+# Expose port 9000 for PHP-FPM
+EXPOSE 9000
+# Command to start PHP-FPM
+CMD ["php-fpm"]

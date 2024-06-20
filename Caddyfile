@@ -1,5 +1,6 @@
 ethoson.com.br, www.ethoson.com.br {
-    reverse_proxy ethoson-site:8000
+    root * /var/www/public
+    php_fastcgi ethoson-site:9000
     encode gzip
     file_server
     log {

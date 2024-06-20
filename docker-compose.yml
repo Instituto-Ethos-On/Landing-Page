@@ -8,10 +8,10 @@ services:
       dockerfile: Dockerfile
     image: ethoson-image:latest
     container_name: ethoson-site
-    expose:
-      - 8000
     restart: unless-stopped
     working_dir: /var/www/
+    expose:
+      - 9000
     volumes:
       - ./:/var/www
       - ./database:/var/www/database
