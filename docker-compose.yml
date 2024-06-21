@@ -1,9 +1,14 @@
+version: "3.7"
+
 services:
   app:
     build:
       args:
         user: ethoson-user
         uid: 1000
+        db_database: ${DB_DATABASE}
+        db_username: ${DB_USERNAME}
+        db_password: ${DB_PASSWORD}
       context: ./
       dockerfile: Dockerfile
     image: ethoson-image:latest
@@ -17,6 +22,12 @@ services:
       - ./database:/var/www/database
     networks:
       - ethoson-network
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+
   caddy:
     image: caddy:2.7-alpine
     container_name: caddy-container
@@ -24,11 +35,29 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 443:443/udp
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
     networks:
       - ethoson-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - ethoson-network
+
 networks:
   ethoson-network:
     driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local

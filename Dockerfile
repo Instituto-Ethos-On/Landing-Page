@@ -1,6 +1,14 @@
 FROM php:8.2-fpm
 ARG user
 ARG uid
+
+ARG db_database
+ARG db_username
+ARG db_password
+ARG db_connection
+ARG db_host
+ARG db_port
+
 # Update and install necessary packages
 RUN apt update && apt install -y \
     git \
